@@ -1,0 +1,217 @@
+$breakpoints: (
+xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px
+);
+
+$colors: (
+mainBackground: #F4F5FA,
+primaryBackground: #FFFFFF,
+whiteBackground: #FFFFFF,
+primaryHover: #e4e4e4,
+primaryColor: #7AC4E3,
+secondaryColor: #111B34,
+thirdColor: #1F3260,
+whiteText: #FFFFFF,
+blackText: #000000,
+grayText: #868686,
+blueText: #3FA9D7
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+@function color($name) {
+    @return map-get($colors, $name);
+}
+
+@mixin for-breakpoint($breakpoint) {
+    $i : map-get($breakpoints, $breakpoint);
+    @media (min-width: #{$i}) {
+        @content;
+    }
+}
+
+@each $k, $v in $colors {
+    .bg-#{$k} {
+        background-color: $v;
+    }
+    .color-#{$k} {
+        color: $v;
+    }
+    .fill-#{$k} {
+        fill: $v;
+    }
+}
+
+@each $k, $v in $breakpoints {
+    @media (min-width: #{$v}) {
+        @for $i from 1 through 12 {
+            .col-#{$k}-#{$i} {
+                width: ( $i / 12) * 100%;
+            }
+        }
+    }
+}
+
+@mixin flex-infos($flexDirection, $justifyContent:null, $alignItems:null, $alignContent:null, $flexWrap: null) {
+    display: flex;
+    @if $flexDirection != null {
+        flex-direction: $flexDirection;
+    }
+    @if $justifyContent != null {
+        justify-content: $justifyContent;
+    }
+    @if $alignItems != null {
+        align-items: $alignItems;
+    }
+    @if $alignContent != null {
+        align-content: $alignContent;
+    }
+    @if $flexWrap != null {
+        flex-wrap: $flexWrap;
+    }
+}
+
+body  {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    
+    @include for-breakpoint(xl) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+.bloc {
+    padding: 15px;
+    margin: 6px 0;
+    @include for-breakpoint(xl) {
+        margin: 12px 0;
+    }
+}
+
+
+.primary-button {
+    height: 45px;
+    width: max-content;
+    line-height: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: color(whiteText);
+    text-align: center;
+    background-color: color(primaryColor);
+    text-decoration: none;
+    padding: 0 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: background-color .2s ease;
+    
+    &:hover {
+        background-color: color(thirdColor);
+        transition: background-color .2s ease;
+    }
+}
+
+.square-button {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    display: block;
+    font-weight: bold;
+    color: color(blueText);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+h2 {
+    line-height: 21px;
+    font-size: 18px;
+}
+
+h3 {
+    line-height: 18px;
+    font-size: 16px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.div_title {
+    background-color: color(primaryColor);
+    width: 100%;
+    h1 {
+        color: color(whiteText);
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+.col_scale {
+    text-align: center;
+    .scale {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .square-number {
+            border: 1px solid #000000;
+            border-radius: 7px;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            width: 30px;
+            margin: 0px 10px;
+        }
+    }
+}
+
+label {
+    display: block;
+    width: 100%;
+    strong {
+        display: block;
+    }
+    input[type="text"], input[type="number"], textarea {
+        display: block;
+        width: 100%;
+        height: 30px;
+        border-radius: 7px;
+        background-color: color(mainBackground);
+        border: 1px solid color(grayText);
+        padding: 0 10px;
+    }
+}

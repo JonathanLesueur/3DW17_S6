@@ -1,0 +1,39 @@
+@import "../../styles.scss";
+input {
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    background-image: url('../../assets/static/icons/icon-loupe.svg');
+    background-repeat: no-repeat;
+    background-position: left 15PX center;
+    background-size: 18px;
+    border: none;
+    border-radius: 17px;
+    padding: 0px 50px;
+    color: color(whiteText);
+    line-height: 34px;
+    font-size: 15px;
+    height: 34px;
+}
+
+.results {
+    position: absolute;
+    width: 100%;
+    top: 120%;
+    min-height: 75px;
+    max-height: 350px;
+    overflow-x: auto;
+    display: none;
+    &.active {
+        display: block;
+    }
+    .item {
+        border-bottom: 1px solid color(grayText);
+        color: #000000;
+        padding: 5px;
+        cursor: pointer;
+        background-color: color(whiteBackground);
+        &:hover {
+            background-color: color(primaryHover);
+        }
+    }
+}

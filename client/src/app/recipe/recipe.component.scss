@@ -1,0 +1,89 @@
+@import "../../styles.scss";
+
+.bloc_recipe {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    & > * {
+        width: 50%;
+    }
+    .picture {
+        img {
+            height: 250px;
+            width: auto;
+        }
+    }
+    .details {
+        display: flex;
+        flex-direction: row;
+        .col {
+            display: flex;
+            flex: 1;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            
+            .text {
+                font-weight: 800;
+                font-size: 14px;
+            }
+
+            &.col_time {
+                font-size: 30px;
+                font-weight: 800;
+                color: color(blackText);
+            }
+        }
+    }
+    
+}
+
+.bloc_steps, .bloc_ingredients {
+    width: 100%;
+}
+
+@include for-breakpoint(xl) {
+    .bloc_ingredients{
+        width: 25%;
+    }
+    
+    .bloc_steps {
+        width: 73%;
+    }
+}
+
+.bloc_ingredients {
+    .ingredients__list {
+        list-style: none;
+        
+        li {
+            height: 25px;
+            line-height: 24px;
+            font-style: italic;
+            strong {
+                margin-right: 5px;
+                font-size: 19px;
+                color: color(blackText);
+            }
+            span {
+                font-size: 18px;
+                color: color(grayText);
+            }
+        }
+    }   
+}
+
+
+.bloc_steps {
+    max-height: 300px;
+    overflow-y: scroll;
+    @include for-breakpoint(xl) {
+        max-height: 500px;
+    }
+    .steps__list {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,46 @@
+<div class="container-principal">
+    <div class="bloc bloc_recipe bg-whiteBackground">
+        <h1>{{ recipe.name }}</h1>
+        <div class="picture">
+            <img *ngIf="recipe.type == 'details'" src="{{ recipe.url }}" alt="">
+            <div *ngIf="(recipe.type == 'link' && recipe.url)" class="bloc bloc_recipe bg-whiteBackground">
+                <div class="col">
+                    <h2>Accès à la recette</h2>
+                    <div class="steps__list">
+                        <a target="_blank" href="{{ recipe.url }}">{{ recipe.url }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div *ngIf="recipe.serving" class="col col_scale">
+                <div class="scale">
+                    <button (click)="changePersons('down')" class="primary-button square-button">-</button>
+                    <div class="square-number">{{ recipe.serving }}</div>
+                    <button (click)="changePersons('up')" class="primary-button square-button">+</button>
+                </div>
+                <span class="text">personne(s)</span>
+            </div>
+            <div *ngIf="recipe.difficulty" class="col col_difficulty">
+                <img src="assets/static/icons/difficulty-icon.svg" width="30px" height="30px" alt="">
+                <span class="text">Difficulté: {{recipe.difficulty}}</span>
+            </div>
+            <div class="col col_time">
+                <span class="duration">{{ recipe.duration }}</span>
+                <span class="text">minutes(s)</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="recipe.type == 'details'" class="bloc bloc_ingredients bg-whiteBackground">
+        <h2>Ingrédients</h2>
+        <ul class="ingredients__list">
+            <li *ngFor="let ingredient of recipe.details.ingredients"><strong>{{ ingredient.quantity }}</strong> <span>{{ ingredient.name }}</span></li>
+        </ul>
+    </div>
+    <div *ngIf="recipe.type == 'details'" class="bloc bloc_steps bg-whiteBackground">
+        <h2>Étapes de la recette</h2>
+        <div class="steps__list">
+            <recipe-step *ngFor="let instruction of recipe.details.instructions;let index = index;" [instruction]="instruction" [index]="index"></recipe-step>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+
+.user__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 18px;
+    height: 55px;
+    width: 100%;
+    border-bottom: 1px solid #FFFFFF;
+    text-align: center;
+    .user__icon {
+        margin-right: 20px;
+    }
+}
+
+.main__nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .item {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-style: 13px;
+        border-bottom: 1px solid #343D52;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: color(whiteText);
+            text-decoration: none;
+            padding-left: 80px;
+
+            &:hover, &.active {
+                background: color(thirdColor);
+            }
+        }
+    }
+
+    .forward {
+        margin-top: 20px;
+        background-color: color(primaryColor);
+        font-weight: 600;        
+        text-decoration: underline;
+        a {
+            color: color(blackText);
+
+            &:hover, &.active {
+                background: color(thirdColor);
+                color: color(whiteText);
+            }
+        }
+    }
+}

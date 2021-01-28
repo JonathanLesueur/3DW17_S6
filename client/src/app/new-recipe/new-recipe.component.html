@@ -1,0 +1,60 @@
+<form #recipeForm="ngForm" ngNativeValidate>
+<div class="container-principal">
+    <div class="div_title">
+        <h1>Enregistrer une recette</h1>
+    </div>
+    <div class="bloc bloc_page bg-whiteBackground">
+        <div class="bloc bloc_base">
+            <div class="basic_infos">
+                <div class="col col_numbers">
+                    <div class="col_scale">
+                        <div class="scale">
+                            <input type="number" required="required" ngModel name="serving" min="1" max="20" step="1" id="serving" class="square-number" value="{{recipe.difficulty}}"/>
+                        </div>
+                        <span class="text"><strong>personne(s)</strong></span>
+                    </div>
+                    <div class="col_scale">
+                        <div class="scale">
+                            <input type="number" required="required" ngModel name="duration" min="1" max="90" step="1" id="duration" class="square-number" value="{{recipe.difficulty}}"/>
+                        </div>
+                        <span class="text"><strong>minutes(s)</strong></span>
+                    </div>
+                    <div class="col_scale">
+                        <div class="scale">
+                            <input type="number" required="required" ngModel name="difficulty" min="1" max="4" step="1" id="difficulty" class="square-number" value="{{recipe.difficulty}}"/>
+                        </div>
+                        <span class="text"><strong>difficulté</strong></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="name"><strong>Nom de la recette:</strong>
+                        <input ngModel required="required" type="text" id="name" name="name"/>
+                    </label>
+                </div>
+            </div>
+            <div class="select_mode" style="margin-top:20px;margin-bottom:20px;">
+                <button type="button" (click)="changeMode('url')" class="primary-button">Via une URL</button>
+                <button type="button" (click)="changeMode('details')" class="primary-button">Avec des détails</button>
+            </div>
+        </div>
+        <div *ngIf="detailsMode == 'url'" class="bloc bloc_details">
+            <h2>URL</h2>
+            <label for="url">
+                <input required="required" ngModel type="text" name="url"/>
+            </label>
+        </div>
+        <div *ngIf="detailsMode == 'details'" class="bloc bloc_details">
+            <h2>Détails</h2>
+            <div class="col col_ingredients">
+                <h3>Lister les ingrédients</h3>
+            </div>
+            <div class="col col_instructions">
+                <h3>Lister les instructions</h3>
+            </div>
+        </div>
+        <div *ngIf="detailsMode == 'details' || detailsMode == 'url'" class="bloc bloc_details">
+            <button (click)="recipeForm.checkValidity()? addRecipe(recipeForm) : 'pas bon'" type="submit" class="primary-button">Ajouter la recette</button>
+        </div>
+    </div>
+</div>
+</form>

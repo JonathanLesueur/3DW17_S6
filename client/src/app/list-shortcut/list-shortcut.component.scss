@@ -1,0 +1,51 @@
+@import '../../styles.scss';
+
+.list-shortcut {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid rgba(color(grayText), 0.2);
+    &:hover {
+        background-color: color(primaryHover);
+    }
+    .date {
+        font-weight: 800;
+        color: color(blackText);
+        text-align: center;
+        margin-right: 15px;
+        span {
+            display: block;
+        }
+        .day {
+            font-size: 36px;
+        }
+        .month {
+            font-size: 14px;
+        }
+    }
+    .infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span, ul {
+            display: block;
+        }
+        .title {
+            font-weight: 800;
+            color: color(blackText);
+            font-size: 18px;
+            line-height: 21px;
+        }
+        .details {
+            list-style: none;
+            font-size: 14px;
+            font-style: italic;
+            color: color(grayText);
+
+            li {
+                height: 18px;
+                line-height: 17px;
+            }
+        }
+    }
+}

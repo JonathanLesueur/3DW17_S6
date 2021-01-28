@@ -1,0 +1,25 @@
+@import "../../styles.scss";
+
+.step {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(color(grayText), 0.1);
+
+    .number {
+        font-weight: 800;
+        font-size: 36px;
+        text-align: center;
+        width: 80px;
+    }
+
+    .description {
+        font-size: 15px;
+        font-style: italic;
+        font-weight: 400;
+        color: color(grayText);
+    }
+}

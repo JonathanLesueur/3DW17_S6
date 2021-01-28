@@ -1,0 +1,111 @@
+@import "../../styles.scss";
+
+.div_title {
+  background-color: color(primaryColor);
+  h1 {
+    color: color(whiteText);
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+.bloc_ingredients {
+  background-color: color(primaryBackground);
+  .add_bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    .search_bar {
+      margin-top: 2rem;
+      width: 25%;
+      input {
+        width: 100%;
+        background-color: color(primaryColor);
+        background-image: url("../../assets/static/icons/icon-loupe.svg");
+        background-repeat: no-repeat;
+        background-position: left 15px center;
+        background-size: 18px;
+        border: none;
+        border-radius: 17px;
+        padding: 0px 50px;
+        color: color(whiteText);
+        line-height: 34px;
+        font-size: 15px;
+        height: 34px;
+      }
+    }
+    .add_button {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .bloc_timer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .div_timer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .timer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 50%;
+          input {
+            width: 50%;
+            text-align: center;
+            padding: 0.5rem;
+            border: solid 2px black;
+            border-radius: 10px;
+          }
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          input::placeholder {
+            color: color(grayText);
+          }
+        }
+      }
+    }
+  }
+  .ingredients_list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem;
+        background-color: color(primaryColor);
+        padding: 0.5rem;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        .add_list{
+            opacity: 0;
+            position: absolute;
+            overflow: hidden;
+            color: white;
+            font-size: 5rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.5);
+            transition: all .5s;
+            cursor: pointer;
+        }
+        .add_list:hover{
+            opacity: 100%;
+        }
+    }
+  }
+}

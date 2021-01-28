@@ -1,0 +1,32 @@
+<div>
+    <div class="div_title">
+        <h1>Ajouter un ingrédient à ma liste</h1>
+    </div>
+    <div class="bloc_ingredients">
+        <div class="add_bar">
+            <div class="search_bar">
+                <input type="text" placeholder="Rechercher un ingrédient" name="" id="">
+            </div>
+            <button class="primary-button square-button add_button"> + </button>
+            <div class="bloc_timer">
+                <div class="div_timer">
+                    <button (click)="changeTime('-')" class="primary-button square-button"> - </button>
+                    <div class="timer">
+                        <input type="number" placeholder="15" name="" id="" min="0" value={{time}}>
+                    </div>
+                    <button (click)="changeTime('+')" class="primary-button square-button"> + </button>
+                </div>
+                <p>minutes</p>
+            </div>
+        </div>
+        <ul class="ingredients_list">
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""> <div class="add_list"><span>+</span></div><span>Pavés de saumon</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Citron</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Verre de vin blanc</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Gros oignon blanc</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Huile d'olive</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Poivre</span></li>
+            <li><img src="../../assets/static/pics/pave-saumon.jpg" alt=""><div class="add_list"><span>+</span></div><span>Sel</span></li>
+        </ul>
+    </div>
+</div>

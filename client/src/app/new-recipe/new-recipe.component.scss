@@ -1,0 +1,58 @@
+@import "../../styles.scss";
+.bloc_page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .bloc_base {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .basic_infos {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .col {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                @include for-breakpoint(xl) {
+                    width: 50%;
+                }
+                &.col_numbers {
+                    flex-direction: column;
+                    justify-content: space-around;
+                    @include for-breakpoint(xl) {
+                        flex-direction: row;
+                    }
+                }
+            }
+            @include for-breakpoint(xl) {
+                flex-direction: row;
+            }
+        }
+        .select_mode {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            button {
+                margin: 0 20px;
+            }
+        }
+    }
+    .bloc_details {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        @include for-breakpoint(xl) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            width: 50%;
+        }
+    }
+}

@@ -1,0 +1,4 @@
+<input #searchBox type="text" (input)="search(searchBox.value)" placeholder="Rechercher une recette" name="" id="">
+<div [ngClass]="{'active': listLength > 0}" class="results">
+    <div (click)="delActive()" *ngFor="let recipe of recipes$" class="item" [routerLink]="['/recipe', recipe._id]">{{ recipe.name }}</div>
+</div>

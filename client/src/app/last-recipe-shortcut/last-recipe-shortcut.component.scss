@@ -1,0 +1,61 @@
+@import '../../styles.scss';
+
+.recipe-shortcut {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid rgba(color(grayText), 0.2);
+    cursor: pointer;
+    &:hover {
+        background-color: color(primaryHover);
+    }
+    .thumbnail {
+        img {
+            max-width: 100px;
+            height: auto;
+            margin: 50px;
+        }
+    }
+    .infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span {
+            display: block;
+        }
+        .title {
+            font-weight: 800;
+            color: color(blackText);
+            font-size: 18px;
+            line-height: 21px;
+        }
+        .details {
+            font-size: 14px;
+            font-style: italic;
+            color: color(grayText);
+        }
+    }
+    .more {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        align-items: flex-end;
+        span {
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 20px;
+            transition: margin-right .3s ease;
+        }
+    }
+
+    &:hover {
+        .more {
+            span {
+                margin-right: 10px;
+                transition: margin-right .3s ease;
+                color: #7AC4E3;
+            }
+        }
+    }
+}

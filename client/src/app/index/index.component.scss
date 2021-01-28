@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+
+
+.bloc__user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include for-breakpoint(xl) {
+        flex-direction: row;
+    }
+    .col {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        svg {
+            width: 54px;
+            height: 54px;
+            @include for-breakpoint(md) {
+                width: 66px;
+                height: 66px;
+            }
+            @include for-breakpoint(xl) {
+                width: 131px;
+                height: 131px;
+            }
+        }
+        .user__infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 23px;
+            .user__name {
+                font-size: 24px;
+                font-weight: 800;
+            }
+            
+            .user__desc {
+                font-size: 18px;
+                
+            }
+        }
+
+        &:last-of-type {
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.bloc__recipes, .bloc__lists {
+    width: 100%;
+    @include for-breakpoint(xl) {
+        width: 49%;
+    }
+}

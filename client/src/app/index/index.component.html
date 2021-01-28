@@ -1,0 +1,28 @@
+<div class="container-principal">
+    <div class="bloc bloc__user bg-whiteBackground">
+        <div class="col">
+            <svg class="icon fill-blackText user__icon" width="131px" height="131px">
+                <use xlink:href="#icon-user"></use>
+            </svg>
+            <div class="user__infos">
+                <span class="color-blueText user__name">Bonjour Prénom,</span>
+                <span class="color-blackText user__desc">Nous sommes heureux de vous revoir</span>
+            </div>
+        </div>
+        <div class="col">
+            <a routerLink="/new-recipe" class="primary-button">Nouvelle recette</a>
+        </div>
+    </div>
+    <div class="bloc bloc__recipes bg-whiteBackground">
+        <h2>Mes dernières recettes</h2>
+        <div class="list-container">
+            <recipe-shortcut *ngFor="let recipe of recipes" [recipe]="recipe"></recipe-shortcut>
+        </div>
+    </div>
+    <div class="bloc bloc__lists bg-whiteBackground">
+        <h2>Les dernières listes</h2>
+        <div class="list-container">
+            <list-shortcut *ngFor="let number of [1,2,3,4,5,6,7,8,9]" [list]="number"></list-shortcut>
+        </div>
+    </div> 
+</div>

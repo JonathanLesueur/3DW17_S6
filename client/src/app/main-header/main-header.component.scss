@@ -1,0 +1,21 @@
+@import "../../styles.scss";
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 55px;
+    background-color: color(primaryColor);
+    color: color(whiteText);
+    padding: 0px 14px;
+    .header__burger-button {
+        margin-right: 50px;
+        cursor: pointer;
+    }
+
+    .header__input-search {
+        width: 40%;
+        position: relative;
+    }
+}

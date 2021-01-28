@@ -1,0 +1,43 @@
+@import "../styles.scss";
+
+.main__document {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    min-height: 100vh;;
+
+    .main__aside {
+        width: 100%;
+        transform: translateX(-100%);
+        position: absolute;
+        z-index: 2;
+        @include for-breakpoint(lg) {
+            min-width: 300px;
+            max-width: 300px;
+            position: initial;
+            transform:initial;
+        }
+        background-color: color(secondaryColor);
+        color: color(whiteText);
+    }
+    .main__body {
+        background-color: color(mainBackground);
+        width: 100%;
+    }
+}
+
+.main__content {
+    padding: 0px;
+    @include for-breakpoint(xl) {
+        padding: 24px;
+    }
+}
+
+.main__footer {
+    background-color: color(whiteBackground);
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    padding: 4px;
+    line-height: 13px;
+}
