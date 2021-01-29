@@ -23,9 +23,9 @@
             </div>
             <div *ngIf="recipe.difficulty" class="col col_difficulty">
                 <img src="assets/static/icons/difficulty-icon.svg" width="30px" height="30px" alt="">
-                <span class="text">Difficulté: {{recipe.difficulty}}</span>
+                <span class="text">Difficulté: {{ recipe.difficulty }}</span>
             </div>
-            <div class="col col_time">
+            <div *ngIf="recipe.duration" class="col col_time">
                 <span class="duration">{{ recipe.duration }}</span>
                 <span class="text">minutes(s)</span>
             </div>
