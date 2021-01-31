@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef  } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { subscribeOn } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
@@ -24,41 +25,22 @@ export class NewRecipeComponent implements OnInit {
         difficulty: 1,
         url: ''
     };
+
     
     
-    constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private api: ApiService) {}
+    constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private api: ApiService, private recipeService: RecipeService) {}
     
     ngOnInit(): void {
-        this.buildRecipeForm();
-    }
-    
-    buildRecipeForm() {
-        this.recipeForm = this.fb.group({
-            name: ['', Validators.required],
-            duration: [10, [Validators.min(1), Validators.max(180)]],
-            serving: [4, Validators.min(1)],
-            type: ['link', Validators.required],
-            url: [''],
-            details: this.fb.group({
-                instructions: this.fb.array([]),
-                ingredients: this.fb.array([])
-            })
-        });
-        
-        this.recipeForm.patchValue({
-            details: {instructions: [{content: ''}]}
+        this.recipeForm = new FormGroup({
+            name: new FormControl(),
+            serving: new FormControl(),
+            difficulty: new FormControl(),
+            duration: new FormControl(),
+            url: new FormControl(),
+            type: new FormControl('link')
         });
     }
-    
-    save() {
-        let data = this.recipeForm.value;
-        this.api.addRecipe<Recipe>(Recipe, 'recipes', data as Recipe)
-        .subscribe((result) => {
-            console.log('Recipe saved', result);
-            this.router.navigate(['/']);
-        });
-    }
-    
+
     changeMode(detailType: string) {
         switch(detailType) {
             case 'url':
@@ -72,8 +54,15 @@ export class NewRecipeComponent implements OnInit {
         this.detailsMode = detailType;
     }
     
-    addRecipe(recipeForm) {
-        console.log(recipeForm.value);
+    addRecipe() {
+        console.log(this.recipeForm.value);
+        this.api.addRecipe(this.recipeForm.value).subscribe(res => {
+            if(res) {
+                console.log('form: success');
+            } else {
+                console.log('form: failed');
+            }
+        });
     }
     
     changePersons(type: String): void {
@@ -117,14 +106,6 @@ export class NewRecipeComponent implements OnInit {
         } else if(this.recipe.difficulty > 4) {
             this.recipe.difficulty = 4;
         }
-    }
-    
-    typeIsLink(): boolean {
-        return this.recipeForm.get('type').value === 'link';
-    }
-    
-    formIsValid() {
-        return this.recipeForm.valid && (!this.typeIsLink() || this.recipeForm.get('url').value);
     }
     
 }

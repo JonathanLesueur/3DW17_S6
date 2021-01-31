@@ -3,6 +3,7 @@ import { Recipe } from './recipe';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ApiService } from './api.service';
+import { ok } from 'assert';
 
 @Injectable({
     providedIn: 'root'
@@ -23,14 +24,6 @@ export class RecipeService {
     
     searchByName(term: string): Observable<Recipe[]> {
         return this.api.getRecipes();
-    }
-
-    public handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-                    
-            console.error(error);
-            return of(result as T);
-        };
     }
 }
       
