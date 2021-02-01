@@ -9,26 +9,26 @@
                 <div class="col col_numbers">
                     <div class="col_scale">
                         <div class="scale">
-                            <input type="number" required="required" formControlName="serving" min="1" max="20" step="1" class="square-number"/>
+                            <input type="number" required="required" formControlName="serving" min="1" max="20" step="1" class="square-number" placeholder="0"/>
                         </div>
                         <span class="text"><strong>personne(s)</strong></span>
                     </div>
                     <div class="col_scale">
                         <div class="scale">
-                            <input type="number" required="required" formControlName="duration" min="1" max="90" step="1" class="square-number"/>
+                            <input type="number" required="required" formControlName="duration" min="1" max="90" step="1" class="square-number" placeholder="0"/>
                         </div>
                         <span class="text"><strong>minutes(s)</strong></span>
                     </div>
                     <div class="col_scale">
                         <div class="scale">
-                            <input type="number" required="required" formControlName="difficulty" min="1" max="4" step="1" class="square-number"/>
+                            <input type="number" required="required" formControlName="difficulty" min="1" max="4" step="1" class="square-number" placeholder="0"/>
                         </div>
                         <span class="text"><strong>difficulté</strong></span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="name"><strong>Nom de la recette:</strong>
-                        <input required="required" type="text" formControlName="name"/>
+                        <input required="required" type="text" formControlName="name" placeholder="Ex: Risotto"/>
                     </label>
                 </div>
             </div>
@@ -39,7 +39,7 @@
         <div *ngIf="detailsMode == 'url'" class="bloc bloc_details">
             <h2>URL</h2>
             <label for="url">
-                <input required="required" formControlName="url"/>
+                <input required="required" formControlName="url" placeholder="https://"/>
             </label>
         </div>
         <div *ngIf="detailsMode == 'details' || detailsMode == 'url'" class="bloc bloc_details">
