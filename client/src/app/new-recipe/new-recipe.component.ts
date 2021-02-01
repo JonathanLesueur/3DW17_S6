@@ -16,7 +16,9 @@ export class NewRecipeComponent implements OnInit {
     
     public recipeForm: FormGroup;
     public details: boolean = false;
-    public detailsMode: string = 'false'
+    public detailsMode: string = 'false';
+    public addResult: string = 'nothing';
+    public resultMessage: string;
     public recipe: Recipe = {
         name: "",
         serving: 0,
@@ -59,8 +61,12 @@ export class NewRecipeComponent implements OnInit {
         this.api.addRecipe(this.recipeForm.value).subscribe(res => {
             if(res) {
                 console.log('form: success');
+                this.addResult = 'success';
+                this.resultMessage = 'Recette ajoutée avec succès !';
             } else {
                 console.log('form: failed');
+                this.addResult = 'fail';
+                this.resultMessage = 'Erreur lors de l\'enregistrement';
             }
         });
     }

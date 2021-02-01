@@ -34,6 +34,7 @@
             </div>
             <div class="select_mode" style="margin-top:20px;margin-bottom:20px;">
                 <button type="button" (click)="changeMode('url')" class="primary-button">Via une URL</button>
+                <button type="button" (click)="changeMode('details')" class="primary-button">Avec des détails</button>
             </div>
         </div>
         <div *ngIf="detailsMode == 'url'" class="bloc bloc_details">
@@ -42,8 +43,13 @@
                 <input required="required" formControlName="url" placeholder="https://"/>
             </label>
         </div>
-        <div *ngIf="detailsMode == 'details' || detailsMode == 'url'" class="bloc bloc_details">
+        <div *ngIf="detailsMode == 'details'" class="bloc bloc_details">
+            <h2>Détails</h2>
+            <p>Non disponible</p>
+        </div>
+        <div *ngIf="detailsMode == 'url'" class="bloc bloc_details">
             <button type="submit" class="primary-button">Ajouter la recette</button>
+            <div *ngIf="addResult == 'success' || addResult == 'fail'">{{ resultMessage }}</div>
         </div>
     </div>
 </div>
